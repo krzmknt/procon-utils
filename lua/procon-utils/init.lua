@@ -41,6 +41,7 @@ end
 function M.open_url()
   local file_path = vim.api.nvim_buf_get_name(0)
   local contest_name, problem_set, problem_id = file_path:match("([^/]+)/([^/]+)/([^/]+)/[^/]+$")
+  print(file_path, contest_name, problem_set, problem_id)
 
   if not contest_name or not problem_set or not problem_id then
     print("Unable to parse contest information.")
