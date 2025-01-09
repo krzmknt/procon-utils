@@ -7,13 +7,19 @@ function M.open_url()
   local file_path = vim.api.nvim_buf_get_name(0)
 
   -- パスから `atcoder`, `contest_name`, `problem_set` を抽出
-  local contest_path = file_path:match("atcoder/([^/]+)/([^/]+)/([^/]+)/")
-  if not contest_path then
-    print("AtCoder contest path not found in the file path.")
-    return
-  end
+  -- local contest_path = file_path:match("atcoder/([^/]+)/([^/]+)/([^/]+)/")
+  -- if not contest_path then
+  --   print("AtCoder contest path not found in the file path.")
+  --   return
+  -- end
 
   local contest_name, problem_set, problem_id = contest_path:match("([^/]+)/([^/]+)/([^/]+)")
+
+  print(file_path)
+  print(contest_name)
+  print(problem_set)
+  print(problem_id)
+
   if not contest_name or not problem_set or not problem_id then
     print("Unable to parse contest information.")
     return
