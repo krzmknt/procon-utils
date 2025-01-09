@@ -22,14 +22,7 @@ local function open_url_in_browser(url)
   os.execute(open_command .. " " .. url)
 end
 
-local function get_url_atcoder(file_path)
-  local contest_name, problem_set, problem_id = file_path:match("([^/]+)/([^/]+)/([^/]+)/[^/]+$")
-
-  if not contest_name or not problem_set or not problem_id then
-    print("Unable to parse contest information.")
-    return
-  end
-
+local function get_url_atcoder(problem_set, problem_id)
   local problem_letter = problem_id
   if problem_set == "typical90" then
     problem_letter = number_to_letter(problem_id)
@@ -50,7 +43,7 @@ function M.open_url()
 
   local url = ""
   if contest_name == "atcoder" then
-    url = get_url_atcoder(contest_name, problem_set, problem_id)
+    url = get_url_atcoder(problem_set, problem_id)
   else
     print("Unsupported contest: " .. contest_name)
     return
