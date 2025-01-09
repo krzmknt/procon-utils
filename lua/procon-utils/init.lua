@@ -13,7 +13,7 @@ function M.open_url()
   --   return
   -- end
 
-  local contest_name, problem_set, problem_id = contest_path:match("([^/]+)/([^/]+)/([^/]+)")
+  local contest_name, problem_set, problem_id = file_path:match("([^/]+)/([^/]+)/([^/]+)")
 
   print(file_path)
   print(contest_name)
